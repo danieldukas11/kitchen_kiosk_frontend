@@ -1,0 +1,39 @@
+.simple-keyboard-container {
+  max-width: 850px;
+  margin: 366px auto;
+  width: 524px;
+}
+
+ul {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  height: 90px;
+  padding: 20px;
+  font-size: 20px;
+  border: 3px solid #F2AC21;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  box-shadow: 3px 3px 3px #000000;
+}
+
+input::placeholder {
+  font: Italic 43px Arial;
+}
+
+.login-btn {
+  display: block;
+  width: 524px;
+  height: 90px;
+  border: 3px solid #F2AC21;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  box-shadow: 3px 3px 3px #000000;
+  background-color: unset;
+
+  span {
+    font: Bold 49px/79px Arial;
+  }
+}

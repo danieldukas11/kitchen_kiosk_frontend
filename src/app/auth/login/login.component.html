@@ -1,0 +1,31 @@
+<div class="simple-keyboard-container">
+  <form [formGroup]="loginForm">
+
+    <div class="input-container">
+      <input
+        (input)="onInputChange($event,'email')"
+        (focus)="onInputFocus($event)" name="email" autofocus
+        class="input" readonly #username
+        placeholder="Name"
+        formControlName="email"
+      />
+    </div>
+
+    <div class="input-container">
+      <input
+        (input)="onInputChange($event,'password')"
+        (focus)="onInputFocus($event)"
+        class="input" readonly
+        name="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+
+    <button class="login-btn" (click)="authUser()">
+      <span>Sign in</span>
+    </button>
+
+    <div class="simple-keyboard hg-theme-default"></div>
+  </form>
+</div>

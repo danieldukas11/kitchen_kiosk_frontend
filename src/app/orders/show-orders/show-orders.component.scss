@@ -1,0 +1,215 @@
+@import 'variables';
+
+.container {
+  width: 1651px;
+  display: flex;
+  border: 1px solid silver;
+  overflow-x: scroll;
+  justify-content: center;
+  margin: auto;
+
+  .orders-container {
+    display: flex;
+    text-align: center;
+
+    font: normal normal 21px/22px Arial;
+    width: 100000px;
+
+    .order {
+      width: 535px;
+      margin-left: 20px;
+
+      .order-container {
+        width: 100%;
+
+
+        .descriptive-text {
+          color: $descriptive-text-color;
+          font-size: 21px;
+        }
+
+        .order-info-container {
+          height: 815px;
+
+          .order-name-container {
+            border-bottom: 1px dashed $order-name-container-color;
+
+            .order-name {
+              text-transform: uppercase;
+              color: $order-name-color;
+              display: block;
+              font-size: 21px;
+              margin: 38px 0;
+              letter-spacing: 0;
+              opacity: 1;
+            }
+          }
+        }
+
+        .products {
+          display: flex;
+          height: 453px;
+          border-bottom: 1px dashed $order-name-container-color;
+
+          .products-names {
+            text-align: left;
+            height: 400px;
+            width: 100%;
+            margin-top: 92px;
+            margin-left: 107px;
+
+            .descriptive-text {
+              margin-left: 3px;
+            }
+
+            .product {
+              font-size: 21px;
+              margin-top: 0;
+            }
+          }
+        }
+
+        .special-instructions {
+          height: 132px;
+        }
+
+        .allergy-information {
+          border-top: 1px dashed $order-name-container-color;
+          height: 101px;
+        }
+
+        .descriptive-text-container {
+          margin-left: 107px;
+        }
+
+        .special-instructions-desc, .allergy-information-desc {
+          margin-top: 5px;
+          margin-left: 20px;
+        }
+
+        .special-instructions, .allergy-information, .timer {
+          display: flex;
+
+          .special-instructions-desc, .allergy-information-desc, .timer-value, .timer-current-value {
+            text-align: left;
+
+            p {
+              margin-top: 0;
+              margin-left: 5px;
+            }
+          }
+        }
+
+        .status-info {
+
+          .status {
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 50px;
+            width: 238px;
+            height: 55px;
+            font-size: 23px;
+          }
+        }
+
+        .timer-container {
+          height: 154px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 30px;
+
+          .timer-current-value-container {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            width: 148px;
+            height: 58px;
+            align-items: center;
+            border: 1px dotted #d0d1d1;
+            padding: 0 10px;
+            background-color: $white;
+
+            .timer-current-value {
+              font: normal normal 37px/39px 'Geneva Regular' !important;
+            }
+          }
+        }
+
+        .pending-timer {
+          background-color: $pending-color;
+        }
+
+        .under-construction-timer {
+          background-color: $under-construction-color;
+        }
+
+        .pick-up-timer {
+          background-color: $pick-up-color;
+        }
+
+        .picked-up-timer {
+          background-color: $picked-up-color;
+        }
+      }
+    }
+
+    .pending-order {
+      border: 1px solid $pending-color;
+
+      .pending-btn {
+        background-color: $pending-color;
+      }
+    }
+
+    .under-construction-order {
+      border: 1px solid $under-construction-color;
+
+      .under-construction-btn {
+        background-color: $under-construction-color;
+      }
+    }
+
+    .pick-up-order {
+      border: 1px solid $pick-up-color;
+
+      .pick-up-btn {
+        background-color: $pick-up-color;
+      }
+    }
+
+    .picked-up-order {
+      border: 1px solid $picked-up-color;
+
+      .picked-up-btn {
+        background-color: $picked-up-color;
+      }
+    }
+
+  }
+
+
+}
+
+.avg-waiting-time-container {
+  width: 323px;
+  height: 105px;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  box-shadow: 3px 3px 6px #000000A2;
+  border: 4px solid #000000;
+  display: flex;
+  margin: auto;
+
+  .avg-time-current-value {
+    width: 252px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: normal normal 54px/56px 'Arial Black';
+    letter-spacing: 0;
+    margin: auto;
+    text-align: center;
+  }
+}
