@@ -5,9 +5,9 @@
       <input
         (input)="onInputChange($event,'email')"
         (focus)="onInputFocus($event)" name="email" autofocus
-        class="input" readonly #username
+        class="input"  #username
         placeholder="Name"
-        formControlName="email"
+        formControlName="userName"
       />
     </div>
 
@@ -15,7 +15,7 @@
       <input
         (input)="onInputChange($event,'password')"
         (focus)="onInputFocus($event)"
-        class="input" readonly
+        class="input"
         name="password"
         placeholder="Password"
         formControlName="password"

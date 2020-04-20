@@ -1,57 +1,115 @@
 <div class="container">
 
-  <ul class="orders-container">
-    <li *ngFor="let order of orders" class="order {{prepareStatusClass(order)}}">
-      <div class="order-container">
-        <div class="order-info-container">
-          <div class="order-name-container">
-            <p class="order-name">{{order.name}}</p>
-          </div>
-          <div class="products">
-            <div class="products-names">
-              <p class="descriptive-text">Products:</p>
-              <p class="product">1 Lg chicken-sandwich</p>
-              <p class="product">2 Sm hamburgers onion</p>
-              <p class="product">1 Med hamburger pickle lettuce</p>
-              <p class="product">3 Lg cokes</p>
-              <p class="product">2 Sm large fries</p>
-            </div>
-          </div>
+  <!--  <ul class="orders-container">-->
+  <!--    <li *ngFor="let order of orders" class="order {{prepareStatusClass(order)}}">-->
+  <!--      <div class="order-container">-->
+  <!--        <div class="order-info-container">-->
+  <!--          <div class="order-name-container">-->
+  <!--            <p class="order-name">{{order.name}}</p>-->
+  <!--          </div>-->
+  <!--          <div class="products">-->
+  <!--            <div class="products-names">-->
+  <!--              <p class="descriptive-text">Products:</p>-->
+  <!--              <p class="product">1 Lg chicken-sandwich</p>-->
+  <!--              <p class="product">2 Sm hamburgers onion</p>-->
+  <!--              <p class="product">1 Med hamburger pickle lettuce</p>-->
+  <!--              <p class="product">3 Lg cokes</p>-->
+  <!--              <p class="product">2 Sm large fries</p>-->
+  <!--            </div>-->
+  <!--          </div>-->
 
-          <div class="special-instructions">
-            <div class="descriptive-text-container">
-              <span class="descriptive-text">Special instructions:</span>
-            </div>
-            <div class="special-instructions-desc">
-              <p>NO</p>
-            </div>
-          </div>
+  <!--          <div class="special-instructions">-->
+  <!--            <div class="descriptive-text-container">-->
+  <!--              <span class="descriptive-text">Special instructions:</span>-->
+  <!--            </div>-->
+  <!--            <div class="special-instructions-desc">-->
+  <!--              <p>NO</p>-->
+  <!--            </div>-->
+  <!--          </div>-->
 
-          <div class="allergy-information">
-            <div class="descriptive-text-container">
-              <span class="descriptive-text">Allergy information:</span>
-            </div>
-            <div class="allergy-information-desc">
-              <p>NO</p>
+  <!--          <div class="allergy-information">-->
+  <!--            <div class="descriptive-text-container">-->
+  <!--              <span class="descriptive-text">Allergy information:</span>-->
+  <!--            </div>-->
+  <!--            <div class="allergy-information-desc">-->
+  <!--              <p>NO</p>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div class="status-info">-->
+  <!--          <button class="status {{prepareStatusClass(order, '-btn')}}">{{order.status}}</button>-->
+  <!--        </div>-->
+  <!--        <div class="timer-container {{prepareStatusClass(order, '-timer')}}">-->
+  <!--          <div class="timer-current-value-container">-->
+  <!--            <div class="timer-current-value">-->
+  <!--              <span>07:25</span>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </li>-->
+  <!--  </ul>-->
+  <!--</div>-->
+  <!--<div class="avg-waiting-time-container">-->
+  <!--  <div class="avg-time-current-value">-->
+  <!--    <span>07:25</span>-->
+  <!--  </div>-->
+
+  <div class="orders-container">
+
+    <owl-carousel-o [options]="owlOptions">
+      <ng-container *ngFor="let order of orders;let ind = index">
+        <ng-template carouselSlide>
+          <div class="order {{prepareStatusClass(order)}}">
+            <div class="order-container">
+              <div class="order-info-container">
+                <div class="order-name-container">
+                  <p class="order-name">Order #{{ind+1}}</p>
+                </div>
+                <div class="products">
+                  <div class="products-names">
+                    <p class="descriptive-text">Products:</p>
+                    <p class="product">1 Lg chicken-sandwich</p>
+                    <p class="product">2 Sm hamburgers onion</p>
+                    <p class="product">1 Med hamburger pickle lettuce</p>
+                    <p class="product">3 Lg cokes</p>
+                    <p class="product">2 Sm large fries</p>
+                  </div>
+                </div>
+
+                <div class="special-instructions">
+                  <div class="descriptive-text-container">
+                    <span class="descriptive-text">Special instructions:</span>
+                  </div>
+                  <div class="special-instructions-desc">
+                    <p>NO</p>
+                  </div>
+                </div>
+
+                <div class="allergy-information">
+                  <div class="descriptive-text-container">
+                    <span class="descriptive-text">Allergy information:</span>
+                  </div>
+                  <div class="allergy-information-desc">
+                    <p>NO</p>
+                  </div>
+                </div>
+              </div>
+              <div class="status-info">
+                <button class="status {{prepareStatusClass(order, '-btn')}}">{{order.status}}</button>
+              </div>
+              <div class="timer-container {{prepareStatusClass(order, '-timer')}}">
+                <div class="timer-current-value-container">
+                  <div class="timer-current-value">
+                    <span>07:25</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="status-info">
-          <button class="status {{prepareStatusClass(order, '-btn')}}">{{order.status}}</button>
-        </div>
-        <div class="timer-container {{prepareStatusClass(order, '-timer')}}">
-          <div class="timer-current-value-container">
-            <div class="timer-current-value">
-              <span>07:25</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
-<div class="avg-waiting-time-container">
-  <div class="avg-time-current-value">
-    <span>07:25</span>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+
   </div>
 </div>

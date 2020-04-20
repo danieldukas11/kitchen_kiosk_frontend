@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import Keyboard from 'simple-keyboard';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    public router: Router
+    public router: Router,
+    public auth: AuthService
   ) {
     this.loginForm = fb.group({
-      email: ['', Validators.required],
-      terminal_number: ['', Validators.required],
+      userName: ['', Validators.required],
+      // terminal_number: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -77,9 +79,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   authUser() {
-    this.router.navigate(['auth/show-actions']);
     if (this.loginForm.valid) {
-
+      this.auth.login(this.loginForm.value).subscribe(async (token: string) => {
+        localStorage.setItem('token', token);
+        await this.router.navigate(['auth/show-actions']);
+      });
     }
   }
 

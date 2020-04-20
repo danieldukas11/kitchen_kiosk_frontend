@@ -1,7 +1,13 @@
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+// regular style toast
+@import '~ngx-toastr/toastr.css';
+
 body, ul {
   margin: 0;
   padding: 0;
 }
+
 
 ul {
   list-style: none;
@@ -9,6 +15,12 @@ ul {
 
 * {
   outline: none;
+}
+
+.owl-carousel.owl-drag .owl-item {
+  overflow: hidden !important;
+  //width: 536px !important;
+  //height: 815px;
 }
 
 

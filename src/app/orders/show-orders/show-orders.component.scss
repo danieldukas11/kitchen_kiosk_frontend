@@ -1,27 +1,22 @@
 @import 'variables';
 
+
+
+
 .container {
   width: 1651px;
   display: flex;
-  border: 1px solid silver;
-  overflow-x: scroll;
   justify-content: center;
   margin: auto;
 
   .orders-container {
-    display: flex;
     text-align: center;
-
+    width: 100%;
     font: normal normal 21px/22px Arial;
-    width: 100000px;
 
     .order {
-      width: 535px;
-      margin-left: 20px;
-
       .order-container {
         width: 100%;
-
 
         .descriptive-text {
           color: $descriptive-text-color;

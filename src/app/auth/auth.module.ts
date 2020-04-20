@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ActionsPageComponent } from './actions-page/actions-page.component';
+import {OwlModule} from 'ngx-owl-carousel';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ActionsPageComponent } from './actions-page/actions-page.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OwlModule
   ]
 })
 export class AuthModule { }
