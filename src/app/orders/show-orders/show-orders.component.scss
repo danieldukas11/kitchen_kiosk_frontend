@@ -1,8 +1,6 @@
 @import 'variables';
 
 
-
-
 .container {
   width: 1651px;
   display: flex;
@@ -24,17 +22,15 @@
         }
 
         .order-info-container {
-          height: 815px;
-
           .order-name-container {
             border-bottom: 1px dashed $order-name-container-color;
 
             .order-name {
               text-transform: uppercase;
               color: $order-name-color;
+              margin-top: 29px;
               display: block;
               font-size: 21px;
-              margin: 38px 0;
               letter-spacing: 0;
               opacity: 1;
             }
@@ -70,7 +66,7 @@
 
         .allergy-information {
           border-top: 1px dashed $order-name-container-color;
-          height: 101px;
+          height: 72px;
         }
 
         .descriptive-text-container {
@@ -184,7 +180,6 @@
 
   }
 
-
 }
 
 .avg-waiting-time-container {
@@ -207,4 +202,10 @@
     margin: auto;
     text-align: center;
   }
+}
+
+
+.product-title, .size {
+  margin-left: 10px;
+
 }

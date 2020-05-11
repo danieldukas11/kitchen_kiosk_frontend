@@ -64,16 +64,59 @@
             <div class="order-container">
               <div class="order-info-container">
                 <div class="order-name-container">
-                  <p class="order-name">Order #{{ind+1}}</p>
+                  <p class="order-name">Order #{{ind + 1}}</p>
                 </div>
                 <div class="products">
                   <div class="products-names">
                     <p class="descriptive-text">Products:</p>
-                    <p class="product">1 Lg chicken-sandwich</p>
-                    <p class="product">2 Sm hamburgers onion</p>
-                    <p class="product">1 Med hamburger pickle lettuce</p>
-                    <p class="product">3 Lg cokes</p>
-                    <p class="product">2 Sm large fries</p>
+
+                    <table>
+                      <ng-container *ngFor="let product of order.orderedProducts">
+                        <tr *ngIf="product.sizes[0].qty">
+                          <td>
+                            <span class="qty">{{product.sizes[0].qty}}</span>
+                          </td>
+                          <td>
+                            <span class="size">{{product.sizes[0].title.substring(0, 2)}}</span>
+                          </td>
+                          <td>
+                            <span class="product-title">{{product.title}}</span>
+                          </td>
+                        </tr>
+                        <tr *ngIf="product.sizes[1].qty">
+                          <td>
+                            <span class="qty">{{product.sizes[1].qty}}</span>
+                          </td>
+                          <td>
+                            <span class="size">{{product.sizes[1].title.substring(0, 2)}}</span>
+                          </td>
+                          <td>
+                            <span class="product-title">{{product.title}}</span>
+                          </td>
+                        </tr>
+                      </ng-container>
+                    </table>
+
+                    <!--                    <ng-container *ngFor="let product of order.orderedProducts">-->
+                    <!--                      <div class="small">-->
+                    <!--                        <span class="qty">{{product.sizes[0].qty}}</span>-->
+                    <!--                        <span class="size">{{product.sizes[0].title.substring(0, 2)}}</span>-->
+                    <!--                        <span class="product-title">{{product.title}}</span>-->
+                    <!--                      </div>-->
+                    <!--                      <div class="large">-->
+                    <!--                        <span class="qty">{{product.sizes[1].qty}}</span>-->
+                    <!--                        <span class="size">{{product.sizes[1].title.substring(0, 2)}}</span>-->
+                    <!--                        <span class="product-title">{{product.title}}</span>-->
+                    <!--                      </div>-->
+                    <!--                      <p class="product">-->
+
+                    <!--                      </p>-->
+                    <!--                      &lt;!&ndash;                                        <p class="product">1 Lg chicken-sandwich</p>&ndash;&gt;-->
+                    <!--                      &lt;!&ndash;                                        <p class="product">2 Sm hamburgers onion</p>&ndash;&gt;-->
+                    <!--                      &lt;!&ndash;                                        <p class="product">1 Med hamburger pickle lettuce</p>&ndash;&gt;-->
+                    <!--                      &lt;!&ndash;                                        <p class="product">3 Lg cokes</p>&ndash;&gt;-->
+                    <!--                      &lt;!&ndash;                                        <p class="product">2 Sm large fries</p>&ndash;&gt;-->
+                    <!--                    </ng-container>-->
                   </div>
                 </div>
 
@@ -82,7 +125,7 @@
                     <span class="descriptive-text">Special instructions:</span>
                   </div>
                   <div class="special-instructions-desc">
-                    <p>NO</p>
+                    <p>{{order.special_instructions.length === 0 ? 'NO' : 'YES' }}</p>
                   </div>
                 </div>
 
@@ -91,7 +134,7 @@
                     <span class="descriptive-text">Allergy information:</span>
                   </div>
                   <div class="allergy-information-desc">
-                    <p>NO</p>
+                    <p>{{!order.allergy_info ? 'NO' : 'YES' }}</p>
                   </div>
                 </div>
               </div>

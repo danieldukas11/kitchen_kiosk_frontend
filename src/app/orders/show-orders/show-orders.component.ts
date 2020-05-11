@@ -1,7 +1,10 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {OWL_CAROUSEL_OPTIONS, TEMP_ORDERS} from '../../core/constants/general';
+import {HARDCODED_ORDER, OWL_CAROUSEL_OPTIONS, TEMP_ORDERS} from '../../core/constants/general';
 import {Order} from '../../shared/models/Order';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {WebSocketService} from '../../core/services/websocket.service';
+import {OrdersService} from '../../core/services/orders.service';
+import * as jwtDecode from 'jwt-decode';
 
 declare let $: any;
 
@@ -11,14 +14,36 @@ declare let $: any;
   styleUrls: ['./show-orders.component.scss']
 })
 export class ShowOrdersComponent implements OnInit, AfterViewInit {
-  orders: Order[] = TEMP_ORDERS;
+  // orders: any = HARDCODED_ORDER;
+  orders: any = [];
   owlOptions: OwlOptions = OWL_CAROUSEL_OPTIONS;
+  authUser;
 
-  constructor() {
+  constructor(
+    private webSocketService: WebSocketService,
+    private ordersService: OrdersService
+  ) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.authUser = jwtDecode(token).data;
+    }
   }
 
   ngOnInit(): void {
-    console.log(this.orders)
+    this.getOrdersByHttp();
+    this.webSocketService.on('get_order').subscribe((order: any) => {
+      order.status = 'Pending';
+      this.orders.push(order);
+      console.log('SOCKET');
+      console.log(this.orders);
+    });
+    console.log(this.orders);
+  }
+
+  getOrdersByHttp() {
+    this.ordersService.get(this.authUser.id).subscribe(dt => {
+      // this.orders = dt;
+    });
   }
 
   prepareStatusClass(order, el = '-order') {
