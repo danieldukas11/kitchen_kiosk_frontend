@@ -101,6 +101,8 @@
             width: 238px;
             height: 55px;
             font-size: 23px;
+            text-transform: capitalize;
+            cursor: pointer;
           }
         }
 
@@ -132,11 +134,11 @@
           background-color: $pending-color;
         }
 
-        .under-construction-timer {
+        .cooking-timer {
           background-color: $under-construction-color;
         }
 
-        .pick-up-timer {
+        .ready-timer {
           background-color: $pick-up-color;
         }
 
@@ -154,18 +156,18 @@
       }
     }
 
-    .under-construction-order {
+    .cooking-order {
       border: 1px solid $under-construction-color;
 
-      .under-construction-btn {
+      .cooking-btn {
         background-color: $under-construction-color;
       }
     }
 
-    .pick-up-order {
+    .ready-order {
       border: 1px solid $pick-up-color;
 
-      .pick-up-btn {
+      .ready-btn {
         background-color: $pick-up-color;
       }
     }

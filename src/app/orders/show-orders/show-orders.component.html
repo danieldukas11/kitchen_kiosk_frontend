@@ -64,7 +64,7 @@
             <div class="order-container">
               <div class="order-info-container">
                 <div class="order-name-container">
-                  <p class="order-name">Order #{{ind + 1}}</p>
+                  <p class="order-name">Order #{{orders.length - ind}}</p>
                 </div>
                 <div class="products">
                   <div class="products-names">
@@ -124,7 +124,7 @@
                   <div class="descriptive-text-container">
                     <span class="descriptive-text">Special instructions:</span>
                   </div>
-                  <div class="special-instructions-desc">
+                  <div class="special-instructions-desc" *ngIf="order.special_instructions">
                     <p>{{order.special_instructions.length === 0 ? 'NO' : 'YES' }}</p>
                   </div>
                 </div>
@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div class="status-info">
-                <button class="status {{prepareStatusClass(order, '-btn')}}">{{order.status}}</button>
+                <button class="status {{prepareStatusClass(order, '-btn')}}" (click)="changeStatus(order)">{{order.status}}</button>
               </div>
               <div class="timer-container {{prepareStatusClass(order, '-timer')}}">
                 <div class="timer-current-value-container">

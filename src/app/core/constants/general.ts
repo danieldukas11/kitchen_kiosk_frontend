@@ -79,8 +79,15 @@ export const OWL_CAROUSEL_OPTIONS: OwlOptions = {
   },
 };
 export const API_URL = environment.url;
+// export const SOCKET_CONFIG = {
+//   url: `64.225.3.114/`, options: {
+//     query: `ns=5e006191363b1b1dd14e4f49`,
+//     resource: 'solo'
+//   }
+// };
+
 export const SOCKET_CONFIG = {
-  url: `64.225.3.114/`, options: {
+  url: `localhost/`, options: {
     query: `ns=5e006191363b1b1dd14e4f49`,
     resource: 'solo'
   }

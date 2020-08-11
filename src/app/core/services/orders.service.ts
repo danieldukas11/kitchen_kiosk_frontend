@@ -12,7 +12,7 @@ export class OrdersService {
   ) {
   }
 
-  get(userId) {
-    return this.http.get(`${API_URL}kitchn/get_orders/${userId}`);
+  get() {
+    return this.http.get(`${API_URL}kitchen/get_orders`);
   }
 }

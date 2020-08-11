@@ -32,22 +32,30 @@ export class ShowOrdersComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.getOrdersByHttp();
     this.webSocketService.on('get_order').subscribe((order: any) => {
-      order.status = 'Pending';
       this.orders.push(order);
-      console.log('SOCKET');
-      console.log(this.orders);
     });
-    console.log(this.orders);
   }
 
   getOrdersByHttp() {
-    this.ordersService.get(this.authUser.id).subscribe(dt => {
-      // this.orders = dt;
+    this.ordersService.get().subscribe(dt => {
+      this.orders = dt;
     });
   }
 
   prepareStatusClass(order, el = '-order') {
     return order.status.toLowerCase().replace(/ /g, '-') + el;
+  }
+
+  changeStatus(order) {
+    if (order.status === 'pending') {
+      order.status = 'cooking';
+    } else if (order.status === 'cooking') {
+      order.status = 'ready';
+    } else {
+      order.status = 'picked-up';
+    }
+    console.log(order.status + '_order');
+    this.webSocketService.emit(order.status + '_order', order);
   }
 
   ngAfterViewInit() {
