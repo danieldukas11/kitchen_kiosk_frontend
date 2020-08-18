@@ -62,7 +62,7 @@ export const OWL_CAROUSEL_OPTIONS: OwlOptions = {
   nav: false,
   navSpeed: 700,
   margin: 20,
-  startPosition: 8,
+  startPosition: 0,
   responsive: {
     0: {
       items: 1

@@ -14,7 +14,6 @@ declare let $: any;
   styleUrls: ['./show-orders.component.scss']
 })
 export class ShowOrdersComponent implements OnInit, AfterViewInit {
-  // orders: any = HARDCODED_ORDER;
   orders: any = [];
   owlOptions: OwlOptions = OWL_CAROUSEL_OPTIONS;
   authUser;
@@ -32,13 +31,26 @@ export class ShowOrdersComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.getOrdersByHttp();
     this.webSocketService.on('get_order').subscribe((order: any) => {
-      this.orders.push(order);
+      this.getOrdersByHttp();
     });
   }
 
   getOrdersByHttp() {
     this.ordersService.get().subscribe(dt => {
       this.orders = dt;
+      const self = this;
+      // this.orders.sort((a, b) => {
+      //   return self.orderTypes.indexOf(a.status) - self.orderTypes.indexOf(b.status);
+      // });
+
+      // this.orders = this.orders.filter((thing, index) =>
+      //   index === self.orders.findIndex((t) => (
+      //     t.user_id === thing.user_id && t.date === thing.date
+      //   ))
+      // );
+
+
+      // console.log(this.orders);
     });
   }
 
@@ -54,7 +66,7 @@ export class ShowOrdersComponent implements OnInit, AfterViewInit {
     } else {
       order.status = 'picked-up';
     }
-    console.log(order.status + '_order');
+    console.log(order);
     this.webSocketService.emit(order.status + '_order', order);
   }
 
